@@ -4,6 +4,7 @@ import Home from "./HomeComponent";
 import Menu from "./MenuComponent";
 import DishDetail from "./DishDetailComponent";
 import Contact from "./ContactComponent";
+import AboutUs from "./AboutComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import { DISHES } from "../shared/dishes";
@@ -19,7 +20,7 @@ class Main extends Component {
       dishes: DISHES,
       comments: COMMENTS,
       promotions: PROMOTIONS,
-      leaders: LEADERS,
+      leaders: LEADERS
     };
   }
 
@@ -27,9 +28,9 @@ class Main extends Component {
     const HomePage = () => {
       return (
         <Home
-          dish={this.state.dishes.filter((dish) => dish.featured)[0]}
-          promotion={this.state.promotions.filter((promo) => promo.featured)[0]}
-          leader={this.state.leaders.filter((leader) => leader.featured)[0]}
+          dish={this.state.dishes.filter(dish => dish.featured)[0]}
+          promotion={this.state.promotions.filter(promo => promo.featured)[0]}
+          leader={this.state.leaders.filter(leader => leader.featured)[0]}
         />
       );
     };
@@ -39,11 +40,11 @@ class Main extends Component {
         <DishDetail
           dish={
             this.state.dishes.filter(
-              (dish) => dish.id === parseInt(match.params.dishId, 10)
+              dish => dish.id === parseInt(match.params.dishId, 10)
             )[0]
           }
           comments={this.state.comments.filter(
-            (comment) => comment.dishId === parseInt(match.params.dishId, 10)
+            comment => comment.dishId === parseInt(match.params.dishId, 10)
           )}
         />
       );
@@ -59,8 +60,12 @@ class Main extends Component {
             path="/menu"
             component={() => <Menu dishes={this.state.dishes} />}
           />
-          <Route exact path="/contactus" component={Contact} />
+          <Route exact path="/contactus" component={Contact} />} />
           <Route path="/menu/:dishId" component={DishWithId} />
+          <Route
+            path="/aboutus"
+            component={() => <AboutUs leaders={this.state.leaders} />}
+          />
           <Redirect to="/home" />
         </Switch>
         <Footer />
