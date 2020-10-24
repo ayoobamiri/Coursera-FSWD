@@ -14,18 +14,18 @@ import {
   Form,
   FormGroup,
   Input,
-  Label,
+  Label
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
 class Header extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       isNavOpen: false,
-      isModalOpen: false,
+      isModalOpen: false
     };
-
     this.toggleNav = this.toggleNav.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
@@ -33,13 +33,13 @@ class Header extends Component {
 
   toggleNav() {
     this.setState({
-      isNavOpen: !this.state.isNavOpen,
+      isNavOpen: !this.state.isNavOpen
     });
   }
 
   toggleModal() {
     this.setState({
-      isModalOpen: !this.state.isModalOpen,
+      isModalOpen: !this.state.isModalOpen
     });
   }
 
@@ -93,11 +93,10 @@ class Header extends Component {
                   </NavLink>
                 </NavItem>
               </Nav>
-
               <Nav className="ml-auto" navbar>
                 <NavItem>
                   <Button outline onClick={this.toggleModal}>
-                    <span className="fa fa-sign-in fa-lg"></span> Login
+                    <span className="fa fa-sign-in fa-lg" /> Login
                   </Button>
                 </NavItem>
               </Nav>
@@ -128,7 +127,7 @@ class Header extends Component {
                   type="text"
                   id="username"
                   name="username"
-                  innerRef={(input) => (this.username = input)}
+                  innerRef={input => (this.username = input)}
                 />
               </FormGroup>
               <FormGroup>
@@ -137,7 +136,7 @@ class Header extends Component {
                   type="password"
                   id="password"
                   name="password"
-                  innerRef={(input) => (this.password = input)}
+                  innerRef={input => (this.password = input)}
                 />
               </FormGroup>
               <FormGroup check>
@@ -145,7 +144,7 @@ class Header extends Component {
                   <Input
                     type="checkbox"
                     name="remember"
-                    innerRef={(input) => (this.remember = input)}
+                    innerRef={input => (this.remember = input)}
                   />
                   Remember me
                 </Label>
